@@ -1,16 +1,16 @@
 name: 'Graphql Downloader'
 description: 'Download some GraphQL'
 inputs:
-  OWNER:
+  owner:
     description: "Code owner"
     default: "github"
-  REPO:
+  repo:
     description: "Repo name"
     default: "view_component" 
-  GH_TOKEN:
+  gh_token:
     description: "Input to use"
     default: "1234"
-  OUTFILE:
+  outfile:
     description: "Filename"
     default: "downloaded.json" 
 outputs:
@@ -20,9 +20,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.OWNER }}
-    - ${{ inputs.REPO }}
-    - ${{ inputs.GH_TOKEN }}
-    - ${{ inputs.OUTFILE }}
+    - ${{ inputs.owner }}
+    - ${{ inputs.reop }}
+    - ${{ inputs.gh_token }}
+    - ${{ inputs.outfile }}
 
     
