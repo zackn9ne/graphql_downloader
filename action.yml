@@ -2,14 +2,17 @@ name: 'Graphql Downloader'
 description: 'Download some GraphQL'
 inputs:
   OWNER:
-    description: "Input to use"
-    default: "world"
+    description: "Code owner"
+    default: "github"
   REPO:
-    description: "Input to use"
-    default: "world" 
+    description: "Repo name"
+    default: "view_component" 
   GH_TOKEN:
     description: "Input to use"
-    default: "world"    
+    default: "1234"
+  OUTFILE:
+    description: "Filename"
+    default: "downloaded.json" 
 outputs:
   success: # id of output
     description: 'Run info message'
@@ -20,4 +23,6 @@ runs:
     - ${{ inputs.OWNER }}
     - ${{ inputs.REPO }}
     - ${{ inputs.GH_TOKEN }}
+    - ${{ inputs.OUTFILE }}
+
     
