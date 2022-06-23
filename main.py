@@ -40,7 +40,15 @@ variables = {
 	"namezz": "view_component"
 }
 
+
 def main():
+    my_input = os.environ["INPUT_MYINPUT"]
+
+    my_output = f"Hello {my_input}"
+
+    print(f"::set-output name=myOutput::{my_output}")
+
+def main2():
 	# Synchronous request
 	data = client.execute(query=query, variables=variables)
 	print(data)  # => {'data': {'country': {'code': 'CA', 'name': 'Canada'}}}
