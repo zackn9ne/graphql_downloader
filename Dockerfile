@@ -2,7 +2,7 @@ FROM python:3-slim AS builder
 
 WORKDIR /app
 # We are installing a dependency here directly into our app source dir
-RUN pip install --target=/app requests python_graphql_client python-dotenv
+RUN pip install --target=/app requests python-graphql-client python-dotenv
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
