@@ -42,5 +42,5 @@ variables = {
 # Synchronous request
 data = client.execute(query=query, variables=variables)
 print(data)  # => {'data': {'country': {'code': 'CA', 'name': 'Canada'}}}
-with open("source/alerts.json", "w", encoding="utf-8") as d:
+with open(os.environ.get('INPUTS_OUTFILE'), "w", encoding="utf-8") as d:
     d.write(json.dumps(data.get("data")))
