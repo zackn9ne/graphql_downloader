@@ -11,7 +11,7 @@ FROM cicirello/pyaction:4
 # FROM ghcr.io/cicirello/pyaction-lite:3
 # FROM ghcr.io/cicirello/pyaction:4
 # FROM ghcr.io/cicirello/pyaction:3
-RUN pip install --target=/app requests python_graphql_client python-dotenv
+RUN pip install requests python_graphql_client python-dotenv
 
 COPY main.py /main.py
 ENTRYPOINT ["/main.py"]
