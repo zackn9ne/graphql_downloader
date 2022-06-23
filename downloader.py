@@ -4,7 +4,7 @@ import json
 from dotenv import load_dotenv
 load_dotenv()  # take environment variables from .env.
 
-headers = { "Authorization": f"Token {os.environ.get('GITHUB_TOKEN')}" }
+headers = { "Authorization": f"Token {os.environ.get('INPUTS_GITHUB_TOKEN')}" }
 client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
 query = """
@@ -34,8 +34,8 @@ query = """
     }
 """
 variables = {
-	"owner": os.environ.get('OWNER'),
-	"repo": os.environ.get('REPO'),
+	"owner": os.environ.get('INPUTS_OWNER'),
+	"repo": os.environ.get('INPUTS_REPO'),
 	"ownerzz": "github",
 	"namezz": "view_component"
 }
