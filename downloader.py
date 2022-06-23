@@ -39,8 +39,13 @@ variables = {
 	"ownerzz": "github",
 	"namezz": "view_component"
 }
-# Synchronous request
-data = client.execute(query=query, variables=variables)
-print(data)  # => {'data': {'country': {'code': 'CA', 'name': 'Canada'}}}
-with open(os.environ.get('INPUTS_OUTFILE'), "w", encoding="utf-8") as d:
-    d.write(json.dumps(data.get("data")))
+
+def main():
+	# Synchronous request
+	data = client.execute(query=query, variables=variables)
+	print(data)  # => {'data': {'country': {'code': 'CA', 'name': 'Canada'}}}
+	with open(os.environ.get('INPUTS_OUTFILE'), "w", encoding="utf-8") as d:
+	    d.write(json.dumps(data.get("data")))
+	
+if __name__ == "__main__":
+    main()
