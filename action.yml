@@ -1,28 +1,13 @@
-name: 'Graphql Downloader'
-description: 'Download some GraphQL'
+name: "Python Container Action Template"
+description: "Get started with Python Container actions"
+author: "Jacob Tomlinson"
 inputs:
-  owner:
-    description: "Code owner"
-    default: "github"
-  repo:
-    description: "Repo name"
-    default: "view_component" 
-  gh_token:
+  myInput:
     description: "Input to use"
-    default: "1234"
-  outfile:
-    description: "Filename"
-    default: "downloaded.json" 
+    default: "world"
 outputs:
-  success: # id of output
-    description: 'Run info message'
+  myOutput:
+    description: "Output from the action"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.owner }}
-    - ${{ inputs.reop }}
-    - ${{ inputs.gh_token }}
-    - ${{ inputs.outfile }}
-
-    
+  using: "docker"
+  image: "Dockerfile"
