@@ -36,4 +36,4 @@ jobs:
           ls
           pwd
           echo ${{ steps.download.myOutput }}
-          cat /github/workspace/alerts.json
+          cat alerts.json
