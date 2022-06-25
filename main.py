@@ -9,7 +9,7 @@ def main():
     # set vars
     load_dotenv()  # take environment variables from .env.
     import base64
-    coded_string = os.environ.get('INPUTS_GH_TOKEN')"
+    coded_string = os.environ.get('INPUTS_GH_TOKEN')
     decoded = base64.b64decode(coded_string)
     headers = { "Authorization": f"Token {decoded}" }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
