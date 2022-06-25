@@ -1,0 +1,32 @@
+name: DownloadQL ext test
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
+
+jobs:
+  downloadAlerts:
+    name: Download GQL to JSON 📥
+    runs-on: ubuntu-latest
+
+      - name: Download the QL
+        id: download
+        uses: zackn9ne/graphql_downloader@main
+        with:
+          owner: ${{ github.event.repository.owner.name }}
+          repo: ${{ github.event.repository.name }}
+          github_token: ${{ secrets.TK_LAPTOP_2 }}
+          outfile: "alerts.json"
+
+      - name: catfile
+        run: |
+          cat $GITHUB_WORKSPACE/app/${{ steps.download.outfile }}
