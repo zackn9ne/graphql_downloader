@@ -47,6 +47,7 @@ def main():
     print(f"{variables.get('owner')} and {variables.get('repo')}")
     # Synchronous request
     data = client.execute(query=query, variables=variables)
+    print(data)
     with open(os.environ.get('INPUT_OUTFILE'), "w", encoding="utf-8") as d:
         d.write(json.dumps(data.get("data")))
     print(f"::set-output name=myOutput::{data}")
