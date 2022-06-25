@@ -35,5 +35,5 @@ jobs:
         run: |
           ls
           pwd
-          echo ${{ steps.download.myOutput }}
+          echo "here is some output from step:" ${{ steps.download.output_myOutput }}
           cat alerts.json
