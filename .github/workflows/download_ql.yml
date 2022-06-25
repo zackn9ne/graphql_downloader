@@ -28,7 +28,7 @@ jobs:
         with:
           owner: ${{ github.event.repository.owner.name }}
           repo: ${{ github.event.repository.name }}
-          gh_token: ${{ secrets.INSOMNIA_KEY }}
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
           outfile: "alerts.json"
 
       - name: catfile
