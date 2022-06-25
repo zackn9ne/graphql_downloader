@@ -10,7 +10,10 @@ inputs:
     default: "world"
   github_token:
     description: "Input to use"
-    default: "world"    
+    default: "world"
+  outfile:
+    description: "Output file to use"
+    default: "alerts.json"  
 outputs:
   myOutput:
     description: "Output from the action"
