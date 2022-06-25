@@ -9,7 +9,7 @@ def main():
     # set vars
     load_dotenv()  # take environment variables from .env.
     import base64
-    coded_string = os.environ.get('INPUTS_GH_TOKEN')
+    coded_string = os.environ.get('INPUT_GH_TOKEN')
     decoded = base64.b64decode(coded_string)
     headers = { "Authorization": f"Token {decoded}" }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
@@ -41,12 +41,12 @@ def main():
         }
     """
     variables = {
-        "owner": os.environ.get('INPUTS_OWNER'),
-        "repo": os.environ.get('INPUTS_REPO')
+        "owner": os.environ.get('INPUT_OWNER'),
+        "repo": os.environ.get('INPUT_REPO')
     }
     # Synchronous request
     data = client.execute(query=query, variables=variables)
-    with open(os.environ.get('INPUTS_OUTFILE'), "w", encoding="utf-8") as d:
+    with open(os.environ.get('INPUT_OUTFILE'), "w", encoding="utf-8") as d:
         d.write(json.dumps(data.get("data")))
     print(f"::set-output name=myOutput::{data}")
 
