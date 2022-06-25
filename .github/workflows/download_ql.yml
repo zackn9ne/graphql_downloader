@@ -33,5 +33,7 @@ jobs:
 
       - name: catfile
         run: |
-          cat $GITHUB_WORKSPACE/app/alerts.json
+          ls
+          pwd
           echo ${{ steps.download.myOutput }}
+          cat /github/workspace/alerts.json
