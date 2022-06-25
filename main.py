@@ -44,6 +44,7 @@ def main():
         "owner": os.environ.get('INPUT_OWNER'),
         "repo": os.environ.get('INPUT_REPO')
     }
+    print(f"{owner} and {repo}")
     # Synchronous request
     data = client.execute(query=query, variables=variables)
     with open(os.environ.get('INPUT_OUTFILE'), "w", encoding="utf-8") as d:

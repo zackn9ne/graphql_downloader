@@ -26,8 +26,8 @@ jobs:
         uses: zackn9ne/graphql_downloader@main
         with:
           owner: ${{ github.event.repository.owner.name }}
-          #repo: ${{ github.event.repository.name }}
-          repo: ${{ secrets.SECRET_REPO }}
+          repo: ${{ github.event.repository.name }}
+          #repo: ${{ secrets.SECRET_REPO }}
           gh_token: ${{ secrets.TK3ENC }}
           outfile: "alerts.json"
 
