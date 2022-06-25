@@ -1,6 +1,9 @@
 name: DownloadQL ext test
 
 on:
+  push:
+    branches: 
+      - main
   workflow_dispatch:
     inputs:
       logLevel:
@@ -17,6 +20,7 @@ jobs:
   downloadAlerts:
     name: Download GQL to JSON 📥
     runs-on: ubuntu-latest
+    steps:
 
       - name: Download the QL
         id: download
