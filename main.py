@@ -11,7 +11,7 @@ def main():
     import base64
     coded_string = os.environ.get('INPUT_GH_TOKEN')
     decoded = base64.b64decode(coded_string)
-    headers = { "Authorization": f"Token {decoded}" }
+    headers = { "Authorization": decoded }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
     query = """

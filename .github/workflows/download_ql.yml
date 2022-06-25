@@ -28,7 +28,7 @@ jobs:
           owner: ${{ github.event.repository.owner.name }}
           repo: ${{ github.event.repository.name }}
           #repo: ${{ secrets.SECRET_REPO }}
-          gh_token: ${{ secrets.TK3ENC }}
+          gh_token: ${{ secrets.FULLB64 }}
           outfile: "alerts.json"
 
       - name: catfile
