@@ -1,14 +1,17 @@
 from python_graphql_client import GraphqlClient
 import os
 import json
+import base64
 from dotenv import load_dotenv
 
 
 def main():
     # set vars
     load_dotenv()  # take environment variables from .env.
-
-    headers = { "Authorization": f"Token {os.environ.get('INPUTS_GH_TOKEN')}" }
+    import base64
+    coded_string = os.environ.get('INPUTS_GH_TOKEN')}"
+    decoded = base64.b64decode(coded_string)
+    headers = { "Authorization": f"Token {decoded}" }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
     query = """

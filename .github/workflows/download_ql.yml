@@ -22,6 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Get secret from base64
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          echo import certificate from secrets and regenerate the file
+          echo $KEYSTORE_BASE64 | base64 -d > $RUNNER_TEMP/my_production.keystore
       - name: Download the QL
         id: download
         uses: zackn9ne/graphql_downloader@main
