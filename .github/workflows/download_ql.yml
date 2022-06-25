@@ -21,13 +21,6 @@ jobs:
     name: Download GQL to JSON 📥
     runs-on: ubuntu-latest
     steps:
-
-      - name: Get secret from base64
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-        run: |
-          echo import certificate from secrets and regenerate the file
-          echo $KEYSTORE_BASE64 | base64 -d > $RUNNER_TEMP/my_production.keystore
       - name: Download the QL
         id: download
         uses: zackn9ne/graphql_downloader@main
@@ -35,7 +28,7 @@ jobs:
           owner: ${{ github.event.repository.owner.name }}
           #repo: ${{ github.event.repository.name }}
           repo: ${{ secrets.SECRET_REPO }}
-          gh_token: ${{ secrets.INSOMNIA_KEY }}
+          gh_token: ${{ secrets.TK3ENC }}
           outfile: "alerts.json"
 
       - name: catfile
