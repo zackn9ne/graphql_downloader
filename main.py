@@ -8,7 +8,7 @@ def main():
     # set vars
     load_dotenv()  # take environment variables from .env.
 
-    headers = { "Authorization": f"Token {os.environ.get('INPUTS_GITHUB_TOKEN')}" }
+    headers = { "Authorization": f"Token {os.environ.get('INPUTS_GH_TOKEN')}" }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
     query = """
@@ -39,9 +39,7 @@ def main():
     """
     variables = {
         "owner": os.environ.get('INPUTS_OWNER'),
-        "repo": os.environ.get('INPUTS_REPO'),
-        "ownerzz": "github",
-        "namezz": "view_component"
+        "repo": os.environ.get('INPUTS_REPO')
     }
     # Synchronous request
     data = client.execute(query=query, variables=variables)

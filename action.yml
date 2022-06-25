@@ -8,7 +8,7 @@ inputs:
   repo:
     description: "Input to use"
     default: "world"
-  github_token:
+  gh_token:
     description: "Input to use"
     default: "world"
   outfile:
