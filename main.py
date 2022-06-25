@@ -8,7 +8,7 @@ def main():
     # set vars
     load_dotenv()  # take environment variables from .env.
 
-    headers = { "Authorization": "Token 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" }
+    headers = { "Authorization": "Token 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" }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
     query = """
