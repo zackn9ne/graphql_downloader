@@ -1,14 +1,12 @@
 from python_graphql_client import GraphqlClient
 import os
 import json
-import base64
 from dotenv import load_dotenv
 
 
 def main():
     # set vars
-    load_dotenv()  # take environment variables from .env.
-    # import base64
+    load_dotenv()  # take environment variables from .env in case debugging
     coded_string = os.environ.get('INPUT_GH_TOKEN')
     decoded = f"Bearer {str(coded_string)}"
     headers = { "Authorization": decoded }
