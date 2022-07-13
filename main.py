@@ -8,36 +8,12 @@ def main():
     # set vars
     load_dotenv()  # take environment variables from .env in case debugging
     coded_string = os.environ.get('INPUT_GH_TOKEN')
+    query = os.environ.get('INPUT_QUERY')
+
     decoded = f"Bearer {str(coded_string)}"
     headers = { "Authorization": decoded }
     client = GraphqlClient(endpoint="https://api.github.com/graphql", headers=headers)
 
-    query = """
-        query dependaBotAlerts($owner: String!, $repo: String!) {
-            repository(owner: $owner, name: $repo) {
-            vulnerabilityAlerts(first: 100) {
-                nodes {
-                createdAt
-                dismissedAt
-                securityVulnerability {
-                    package {
-                    name
-                    ecosystem
-                    }
-                    advisory {
-                    severity
-                    summary
-                    description
-                    notificationsPermalink
-                    ghsaId
-                    }
-                    vulnerableVersionRange
-                }
-                }
-            }
-            }
-        }
-    """
     variables = {
         "owner": os.environ.get('INPUT_OWNER'),
         "repo": os.environ.get('INPUT_REPO')
