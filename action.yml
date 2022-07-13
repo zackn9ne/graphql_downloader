@@ -11,6 +11,33 @@ inputs:
   gh_token:
     description: "Input to use"
     default: "world"
+  query:
+    description: "GraphQL query to use"
+    default: >
+      query dependaBotAlerts($owner: String!, $repo: String!) {
+            repository(owner: $owner, name: $repo) {
+            vulnerabilityAlerts(first: 100) {
+                nodes {
+                createdAt
+                dismissedAt
+                securityVulnerability {
+                    package {
+                    name
+                    ecosystem
+                    }
+                    advisory {
+                    severity
+                    summary
+                    description
+                    notificationsPermalink
+                    ghsaId
+                    }
+                    vulnerableVersionRange
+                }
+                }
+            }
+            }
+        }
   outfile:
     description: "Output file to use"
     default: "alerts.json"  
